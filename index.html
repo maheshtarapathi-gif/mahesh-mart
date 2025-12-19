@@ -142,3 +142,21 @@
 
 </body>
 </html>
+<input
+  type="text"
+  id="search"
+  placeholder="Search for products..."
+  onkeyup="searchProducts()"
+  style="padding:8px;width:250px;border-radius:5px;border:none"
+/>
+<script>
+function searchProducts() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let products = document.getElementsByClassName("product");
+
+  for (let i = 0; i < products.length; i++) {
+    let title = products[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+    products[i].style.display = title.includes(input) ? "block" : "none";
+  }
+}
+</script>
